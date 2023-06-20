@@ -34,7 +34,9 @@ function handlerSelect(evt){
     elements.catInfo.setAttribute('hidden', '')
     const catBreed = evt.target.value
     elements.loader.hidden = false;
-    fetchCatByBreed(catBreed).then((results)=>{        
+    elements.select.setAttribute('hidden', '');
+    fetchCatByBreed(catBreed).then((results)=>{
+        elements.select.removeAttribute('hidden');        
         elements.loader.hidden = true;
         createMarkUp(results)
         elements.catInfo.removeAttribute('hidden');
