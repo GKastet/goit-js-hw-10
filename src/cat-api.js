@@ -6,9 +6,9 @@ function fetchBreeds(){
     const URL = `${BASE_URL}${END_POINT}?${API_KEY}`;
     
     return fetch(URL).then((responce)=>{
-        //if(!responce.ok){
-        //     throw new Error();
-        // }
+        if(!responce.ok){
+            throw new Error();
+        }
         return responce.json();
     })
 }
@@ -19,9 +19,9 @@ function fetchCatByBreed(breedId){
     const URL_BREED = `${BASE_URL}${END_POINT}${SELECT_BREED}=${breedId}&${API_KEY}`
     
     return fetch(URL_BREED).then((responce)=>{
-        //if(!responce.ok){
-        //     throw new Error();
-        // }    
+        if(!responce.ok){
+            throw new Error();
+        }    
         return responce.json();
     })
 }
